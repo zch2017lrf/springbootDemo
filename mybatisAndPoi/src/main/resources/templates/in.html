@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="exportRoleExcel()">exportRoleExcel</button>
+</body>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+    function exportRoleExcel() {
+        $.post("test/test", null, function (r) {
+            if (r.code === 0) {
+                window.location.href = "file/download?fileName=" + r.msg + "&delete=" + true;
+            } else {
+                $MB.n_warning(r.msg);
+            }
+        });
+    }
+</script>
+</html>
