@@ -21,3 +21,6 @@ mybatis:
   mapper-locations: classpath:mapper/*.xml
   property:
     order: BEFORE
+  type-aliases-package: com.yxkj.aha.entity
+febs:
+  showsql: true

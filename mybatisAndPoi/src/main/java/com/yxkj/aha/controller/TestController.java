@@ -20,9 +20,11 @@ public class TestController {
     userMapper userMapper;
 
 
+
     @RequestMapping("/index")
-    public String test111() {
-        return "in";
+    @ResponseBody
+    public List<user> test111() {
+        return userMapper.selectOne();
     }
 
     @RequestMapping("/test/test")
