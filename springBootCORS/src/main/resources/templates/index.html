@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>跨域测试</title>
+</head>
+<body>
+<h3>我是index</h3>
+<div id="cors">
+    <div id="hello"></div>
+    <div id="post"></div>
+</div>
+</body>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script>
+    $(function () {
+        $.get("http://test.kaleldo.com:8080/hello", function (data) {
+            $("#hello").text("get 请求"+data);
+        });
+        $.ajax({
+            type : 'post',
+            url : "http://test.kaleldo.com:8080/hello",
+            success : function(result) {
+                $("#post").text("post 请求"+result);
+            }
+        })
+    })
+</script>
+</html>
