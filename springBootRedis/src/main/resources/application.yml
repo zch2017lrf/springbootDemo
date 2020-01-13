@@ -1,0 +1,15 @@
+spring:
+  redis:
+    host: localhost
+    password:
+    timeout: 10000ms
+    database: 0
+    lettuce:
+      pool:
+        max-active: 8
+    jedis:
+      pool:
+        max-wait: -1ms
+        max-idle: 8
+        min-idle: 0
+    port: 6379
