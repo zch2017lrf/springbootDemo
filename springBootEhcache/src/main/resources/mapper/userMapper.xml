@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.mapper.userMapper">
+    <update id="update">
+        UPDATE user SET  username = #{user.username},password= #{user.password}
+    </update>
+    <delete id="deleteUserById">
+        DELETE FORM user where id=#{id}
+    </delete>
+    <select id="countByUsername" resultType="java.lang.Integer">
+            SELECT count(1) FROM user WHERE username = #{username}
+    </select>
+    <select id="queryUserByName" resultType="com.example.demo.entity.user">
+         SELECT * FROM user WHERE username LIKE #{username}
+    </select>
+    <select id="queryUserById" resultType="com.example.demo.entity.user">
+         SELECT * FROM user WHERE id=#{id}
+    </select>
+</mapper>
