@@ -1,0 +1,16 @@
+spring:
+  rabbitmq:
+    template:
+      mandatory: false
+    publisher-returns: true
+    password: admin
+    port: 5672
+    listener:
+      simple:
+        acknowledge-mode: manual
+        max-concurrency: 5
+        concurrency: 1
+    host: 192.168.1.195
+    virtual-host: /
+    publisher-confirms: true
+    username: admin
