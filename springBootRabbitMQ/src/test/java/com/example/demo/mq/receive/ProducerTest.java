@@ -1,5 +1,6 @@
 package com.example.demo.mq.receive;
 
+import com.example.demo.config.TopicRabbitConfig;
 import com.example.demo.mq.send.RabbitTemplateProducer;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -26,7 +27,15 @@ public class ProducerTest {
     public void sendMsg() {
         try {
  //           rabbitTemplateProducer.sendMsg("123",new HashMap<>());
-           rabbitTemplate.convertAndSend("exchange001", "springboot.test1","123456".getBytes("utf-8"));
+            //topic
+           rabbitTemplate.convertAndSend("topicExchange", TopicRabbitConfig.first,"kaleldo".getBytes("utf-8"));
+           rabbitTemplate.convertAndSend("topicExchange", "topic.second","second".getBytes("utf-8"));
+
+            //fanout
+//           rabbitTemplate.convertAndSend("fanoutExchange", null,"123456".getBytes("utf-8"));
+          //direct
+//           rabbitTemplate.convertAndSend("TestDirectExchange", "TestDirectRouting","123456".getBytes("utf-8"));
+
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
