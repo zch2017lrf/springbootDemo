@@ -1,0 +1,6 @@
+security:
+  oauth2:
+    client:
+      client-id: kaleldo
+      client-secret: 123456
+      registered-redirect-uri: https://zch2017lrf.github.io/
