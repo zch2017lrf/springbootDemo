@@ -1,0 +1,13 @@
+security:
+  oauth2:
+    client:
+      client-id: kaleldo
+      client-secret: 123456
+      registered-redirect-uri: https://zch2017lrf.github.io/
+
+spring:
+    redis:
+        database: 0
+        host: 192.168.1.195
+        port: 8379
+        password: kaleldo123456
