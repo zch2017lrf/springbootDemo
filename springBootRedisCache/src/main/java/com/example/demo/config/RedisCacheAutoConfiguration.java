@@ -23,4 +23,5 @@ public class RedisCacheAutoConfiguration {
         template.setConnectionFactory(redisConnectionFactory);
         return template;
     }
+
 }

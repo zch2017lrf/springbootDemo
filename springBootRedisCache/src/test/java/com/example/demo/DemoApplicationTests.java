@@ -1,7 +1,7 @@
 package com.example.demo;
 
-import com.example.demo.entity.User;
 import com.example.demo.service.UserService;
+import com.example.demo.utils.RedisService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -9,6 +9,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -18,14 +21,27 @@ public class DemoApplicationTests {
 
     @Autowired
     private UserService userService;
+    @Autowired
+    private RedisService redisService;
 
     @Test
     public void get() {
-        final User user = userService.saveOrUpdate(new User(5L, "u5", "p5"));
-        log.info("[saveOrUpdate] - [{}]", user);
-        final User user1 = userService.get(5L);
-        log.info("[get] - [{}]", user1);
-        userService.delete(5L);
+        List<String> list = new ArrayList<>();
+        list.add("tom");
+        list.add("jon");
+        list.add("alex");
+//        redisService.lSet("username", list);
+//        List getList =redisService.lGet("username", 0L, -1L);
+//        System.out.println(getList);
+//        redisService.hset("hello","item",list);
+//        redisService.lSet("list", "tom");
+//        redisService.lSet("list", "jon");
+//        redisService.lSet("list", "alex");
+        redisService.lUpdateIndex("list", 0L, "alex");
+        redisService.lUpdateIndex("list", 1L, "tom");
+        redisService.lUpdateIndex("list", 2L, "jon");
+
+
     }
 
 }
